@@ -58,7 +58,12 @@ body {
   align-items: center;
   z-index: 1;
 }
-
+@media (max-width: 1000px) {
+  .map-button {
+    width: 10px; /* Adjust the width for smaller screens */
+    height: 10px; /* Set the same height as width to maintain a perfect round shape */
+  }
+}  
 .map-button.correct {
   background-color: #28a745;
 }
@@ -66,7 +71,6 @@ body {
 .map-button.wrong {
   background-color: #dc3545;
 }
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 #reserve-name {
   font-family: 'tahoma', sans-serif; /* Use the Material Symbols Outlined font for the reserve name */
   font-size: 24px; /* Adjust the font size as needed */
@@ -75,12 +79,13 @@ body {
 }  
 
 button {
-  font-family: 'Press Start 2P',cursive;
+  font-family: 'tahoma';
+  font-weight: bold;
   margin-top: 10px;
   padding: 10px 20px;
   font-size: 18px;
   background-color: #2dcd8d;
-  color: #fff;
+  color: #f9f6f6;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -106,4 +111,16 @@ button:hover {
     height: 20px;
     font-size: 10px;
   }
+}
+#result {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  font-weight: bold;
+  color: #007bff;
+  font-family: 'Poppins', sans-serif; /* Use the Poppins font for the answer text */
+  -webkit-text-stroke: 1px black;
+  text-stroke: 1px black;
 }
