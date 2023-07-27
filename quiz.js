@@ -78,16 +78,16 @@ const tigerReserves = [
   // Function to set new coordinates for the buttons
   function setButtonCoordinates() {
     // Adjust the button coordinates in pixels here as needed for different screen sizes
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 1000) {
       // Coordinates for mobile devices
       const buttonCoordinatesMobile = [
-        { top: '270px', left: '60px' }, // Button 1
-        { top: '75px', left: '100px' }, // Button 2
-        { top: '260px', left: '110px' }, // Button 3
-        { top: '170px', left: '100px' }, // Button 4
-        { top: '150px', left: '50px' }, // Button 5
-        { top: '170px', left: '200px' }, // Button 6
-        { top: '320px', left: '70px' }, // Button 7
+        { top: '300px', left: '90px' }, // Button 1
+        { top: '85px', left: '135px' }, // Button 2
+        { top: '300px', left: '130px' }, // Button 3
+        { top: '180px', left: '120px' }, // Button 4
+        { top: '150px', left: '70px' }, // Button 5
+        { top: '190px', left: '220px' }, // Button 6
+        { top: '340px', left: '95px' }, // Button 7
       ];
   
       const buttons = document.querySelectorAll('.map-button');
