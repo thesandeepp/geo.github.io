@@ -1,3 +1,4 @@
+// quiz.js
 const tigerReserves = [
     "Bandipur Tiger Reserve",
     "Jim Corbett Tiger Reserve",
@@ -72,61 +73,60 @@ const tigerReserves = [
       button.classList.add("map-button", `button${i + 1}`);
       button.onclick = () => checkAnswer(i + 1);
       buttonsOverlay.appendChild(button);
-    }
-  }
   
-  // Function to set new coordinates for the buttons
-  function setButtonCoordinates() {
-    // Adjust the button coordinates in pixels here as needed for different screen sizes
-    if (window.innerWidth <= 1000) {
-      // Coordinates for mobile devices
-      const buttonCoordinatesMobile = [
-        { top: '300px', left: '90px' }, // Button 1
-        { top: '85px', left: '135px' }, // Button 2
-        { top: '300px', left: '130px' }, // Button 3
-        { top: '180px', left: '120px' }, // Button 4
-        { top: '150px', left: '70px' }, // Button 5
-        { top: '190px', left: '220px' }, // Button 6
-        { top: '340px', left: '95px' }, // Button 7
-      ];
-  
-      const buttons = document.querySelectorAll('.map-button');
-      buttons.forEach((button, index) => {
-        button.style.top = buttonCoordinatesMobile[index].top;
-        button.style.left = buttonCoordinatesMobile[index].left;
-      });
-    } else {
-      // Coordinates for larger screens
-      const buttonCoordinates = [
-        { top: '620px', left: '171px' }, // Button 1
-        { top: '193px', left: '250px' }, // Button 2
-        { top: '570px', left: '250px' }, // Button 3
-        { top: '370px', left: '200px' }, // Button 4
-        { top: '330px', left: '129px' }, // Button 5
-        { top: '390px', left: '460px' }, // Button 6
-        { top: '700px', left: '190px' }, // Button 7
-      ];
-  
-      const buttons = document.querySelectorAll('.map-button');
-      buttons.forEach((button, index) => {
-        button.style.top = buttonCoordinates[index].top;
-        button.style.left = buttonCoordinates[index].left;
+      // Add event listener to play click sound on click
+      button.addEventListener('click', () => {
+        playClickSound();
       });
     }
   }
   
-  // Function to play the click sound whenever a button is clicked
-  function playClickSound() {
-    const clickSound = document.getElementById('clickSound');
-    clickSound.currentTime = 0; // Reset the audio to the beginning
-    clickSound.play();
-  }
+  // Rest of the JavaScript code for setButtonCoordinates() and playClickSound()
+  // ... (keep the rest of your code as it was)
   
-  // Add event listeners to all buttons to play the click sound on click
-  const buttons = document.querySelectorAll('.map-button');
-  buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-      playClickSound();
+
+// Function to set new coordinates for the buttons
+function setButtonCoordinates() {
+  // Adjust the button coordinates in pixels here as needed for different screen sizes
+  if (window.innerWidth <= 1000) {
+    // Coordinates for mobile devices
+    const buttonCoordinatesMobile = [
+      { top: '300px', left: '90px' }, // Button 1
+      { top: '85px', left: '135px' }, // Button 2
+      { top: '300px', left: '130px' }, // Button 3
+      { top: '180px', left: '120px' }, // Button 4
+      { top: '150px', left: '70px' }, // Button 5
+      { top: '190px', left: '220px' }, // Button 6
+      { top: '340px', left: '95px' }, // Button 7
+    ];
+
+    const buttons = document.querySelectorAll('.map-button');
+    buttons.forEach((button, index) => {
+      button.style.top = buttonCoordinatesMobile[index].top;
+      button.style.left = buttonCoordinatesMobile[index].left;
     });
-  });
-  
+  } else {
+    // Coordinates for larger screens
+    const buttonCoordinates = [
+      { top: '620px', left: '171px' }, // Button 1
+      { top: '193px', left: '250px' }, // Button 2
+      { top: '570px', left: '250px' }, // Button 3
+      { top: '370px', left: '200px' }, // Button 4
+      { top: '330px', left: '129px' }, // Button 5
+      { top: '390px', left: '460px' }, // Button 6
+      { top: '700px', left: '190px' }, // Button 7
+    ];
+
+    const buttons = document.querySelectorAll('.map-button');
+    buttons.forEach((button, index) => {
+      button.style.top = buttonCoordinates[index].top;
+      button.style.left = buttonCoordinates[index].left;
+    });
+  }
+}
+
+// Function to play the click sound whenever a button is clicked
+function playClickSound() {
+  const clickSound = new Audio('click.mp3');
+  clickSound.play();
+}
