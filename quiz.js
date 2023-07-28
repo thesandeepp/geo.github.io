@@ -1,89 +1,89 @@
 // quiz.js
 const tigerReserves = [
-    "Bandipur Tiger Reserve",
-    "Jim Corbett Tiger Reserve",
-    "Nagarjunsagar-Srisailam Tiger Reserve",
-    "Bandhavgarh Tiger Reserve",
-    "Ranthambore Tiger Reserve",
-    "Sunderban Tiger Reserve",
-    "Periyar Tiger Reserve",
-  ];
-  
-  let currentQuestionIndex = 0;
-  
-  function startQuiz() {
-    currentQuestionIndex = 0;
-    showQuestion();
-    document.getElementById("result").innerText = "";
-  }
-  
-  function showQuestion() {
-    document.getElementById("question").innerText = "Guess the Tiger Reserve:";
-    document.getElementById("reserve-name").innerText = tigerReserves[currentQuestionIndex];
-  }
-  
-  function checkAnswer(selectedButtonIndex) {
-    const correctButtonIndex = currentQuestionIndex + 1;
-  
-    if (selectedButtonIndex === correctButtonIndex) {
-      const buttons = document.querySelectorAll(".map-button");
-      buttons[currentQuestionIndex].classList.add("correct");
-      buttons[currentQuestionIndex].innerText = tigerReserves[currentQuestionIndex];
-      setTimeout(() => {
-        buttons[currentQuestionIndex].classList.remove("correct");
-        nextQuestion();
-      }, 1000);
-    } else {
-      const button = document.querySelector(`.map-button.button${selectedButtonIndex}`);
-      button.classList.add("wrong");
-    }
-  }
-  
-  function nextQuestion() {
+  "Bandipur Tiger Reserve",
+  "Jim Corbett Tiger Reserve",
+  "Nagarjunsagar-Srisailam Tiger Reserve",
+  "Bandhavgarh Tiger Reserve",
+  "Ranthambore Tiger Reserve",
+  "Sunderban Tiger Reserve",
+  "Periyar Tiger Reserve",
+];
+
+let currentQuestionIndex = 0;
+
+function startQuiz() {
+  currentQuestionIndex = 0;
+  showQuestion();
+  document.getElementById("result").innerText = "";
+}
+
+function showQuestion() {
+  document.getElementById("question").innerText = "Guess the Tiger Reserve:";
+  document.getElementById("reserve-name").innerText = tigerReserves[currentQuestionIndex];
+}
+
+function checkAnswer(selectedButtonIndex) {
+  const correctButtonIndex = currentQuestionIndex + 1;
+
+  if (selectedButtonIndex === correctButtonIndex) {
     const buttons = document.querySelectorAll(".map-button");
-    buttons.forEach((button) => {
-      button.classList.remove("wrong");
-      button.innerText = "";
-    });
-  
-    if (currentQuestionIndex < tigerReserves.length - 1) {
-      currentQuestionIndex++;
-      showQuestion();
-    } else {
-      document.getElementById("question").innerText = "Congratulations! You have completed the quiz.";
-      document.getElementById("reserve-name").innerText = "";
-    }
+    buttons[currentQuestionIndex].classList.add("correct");
+    buttons[currentQuestionIndex].innerText = tigerReserves[currentQuestionIndex];
+    setTimeout(() => {
+      buttons[currentQuestionIndex].classList.remove("correct");
+      nextQuestion();
+    }, 1000);
+  } else {
+    const button = document.querySelector(`.map-button.button${selectedButtonIndex}`);
+    button.classList.add("wrong");
   }
-  
-  // Reset the quiz when the page is loaded or reloaded
-  window.onload = () => {
-    startQuiz();
-    createButtons();
-    setButtonCoordinates(); // Set initial button coordinates
-  
-    // Add a window resize event listener to update button coordinates on window resize
-    window.addEventListener('resize', setButtonCoordinates);
-  };
-  
-  // Function to create buttons for the quiz
-  function createButtons() {
-    const buttonsOverlay = document.querySelector(".buttons-overlay");
-    for (let i = 0; i < tigerReserves.length; i++) {
-      const button = document.createElement("button");
-      button.classList.add("map-button", `button${i + 1}`);
-      button.onclick = () => checkAnswer(i + 1);
-      buttonsOverlay.appendChild(button);
-  
-      // Add event listener to play click sound on click
-      button.addEventListener('click', () => {
-        playClickSound();
-      });
-    }
+}
+
+function nextQuestion() {
+  const buttons = document.querySelectorAll(".map-button");
+  buttons.forEach((button) => {
+    button.classList.remove("wrong");
+    button.innerText = "";
+  });
+
+  if (currentQuestionIndex < tigerReserves.length - 1) {
+    currentQuestionIndex++;
+    showQuestion();
+  } else {
+    document.getElementById("question").innerText = "Congratulations! You have completed the quiz.";
+    document.getElementById("reserve-name").innerText = "";
+     displayResult();
+  } 
+}
+
+function displayResult() {
+    const resultPercentage = (correctAttempts / totalAttempts) * 100;
+    const resultMessage = `You guessed the right button ${correctAttempts} times out of ${totalAttempts}. Your success rate is ${resultPercentage.toFixed(2)}%.`;
+    document.getElementById("result").innerText = resultMessage;
+}
+// Reset the quiz when the page is loaded or reloaded
+window.onload = () => {
+  startQuiz();
+  createButtons();
+  setButtonCoordinates(); // Set initial button coordinates
+
+  // Add a window resize event listener to update button coordinates on window resize
+  window.addEventListener('resize', setButtonCoordinates);
+};
+
+// Function to create buttons for the quiz
+function createButtons() {
+  const buttonsOverlay = document.querySelector(".buttons-overlay");
+  for (let i = 0; i < tigerReserves.length; i++) {
+    const button = document.createElement("button");
+    button.classList.add("map-button", `button${i + 1}`);
+    button.onclick = () => checkAnswer(i + 1);
+    buttonsOverlay.appendChild(button);
+
+    // Add event listener to play click sound on click
+    button.addEventListener('click', playClickSound);
   }
-  
-  // Rest of the JavaScript code for setButtonCoordinates() and playClickSound()
-  // ... (keep the rest of your code as it was)
-  
+}
 
 // Function to set new coordinates for the buttons
 function setButtonCoordinates() {
