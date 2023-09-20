@@ -1,14 +1,61 @@
-body {
-  background-color: #ecf5cc;
-  font-family: Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
+html {
+  min-height: 100%;
+  overflow: scroll;
+  background-image: radial-gradient(circle,#70b7c2,#81dbe9, #01c7c4);
+  overflow-x: hidden;
+}  
+
+.dropbtn {
+  background-color: #1fdec4;
+  color: rgb(235, 225, 225);
+  padding: 16px;
+  width: 200px;
+  font-size: 16px;
+  border: 1px solid #000;
+  cursor: pointer;
+  margin-left: 0px; /* Add margin to the left to separate it from the title */
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #93d0b5;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  background-color: rgba(11, 114, 101, 0.3);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #beb96e;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Other CSS styles go here */
 .container {
-  max-width: 1200px;
+  max-width: 200px;
+  max-height: fit-content;
   margin: 0 auto;
   padding: 20px;
+  position: fixed;
+  left: 90px;
+  
+
 }
 
 .title {
@@ -17,7 +64,7 @@ body {
   margin-bottom: 20px;
 }
 
-.content {
+content {
   display: flex;
   justify-content: space-between;
 }
@@ -26,34 +73,34 @@ body {
   width: 250px;
 }
 
-.col-2-wrapper {
-  position: relative;
-  padding-bottom: calc(100% / 2)
-  /* Add any specific styles for the wrapper if needed */
-}
-
 .col-2 {
-  width: 800px;
+  width: 100%;
+  height: fit-content;
+  display:flex;
 }
 
 .map-container {
   position: relative;
   max-width: 100%;
-  height: auto;
-  margin-top: 30px;
+  height: 100%;
+  margin-top: 0;
+  left: 40%;
+  top: 20%;
+
 }
 
 .map-container img {
   max-width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
 .map-button {
-  border-radius: 50px ;
-  height: 20px ;
-  width: 20px ;
-  padding: 5px 5px 5px 5px;
-  font-size: 14px ;
+  border-radius: 50px;
+  height: 20px;
+  width: 20px;
+  padding: 5px;
+  font-size: 14px;
   background-color: #8daeef;
   color: rgb(253, 250, 250);
   font-weight: bold;
@@ -64,25 +111,24 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 1;
-    text-shadow:
+  text-shadow:
     -1px -1px 0 #000,
-     0   -1px 0 #000,
-     1px -1px 0 #000,
-     1px  0   0 #000,
-     1px  1px 0 #000,
-     0    1px 0 #000,
-    -1px  1px 0 #000,
-    -1px  0   0 #000;
+    0 -1px 0 #000,
+    1px -1px 0 #000,
+    1px 0 0 #000,
+    1px 1px 0 #000,
+    0 1px 0 #000,
+    -1px 1px 0 #000,
+    -1px 0 0 #000;
 }
 
 @media (max-width: 1000px) {
   .map-button {
     width: 30px;
     height: 30px;
-    font-size: 12px; /* Set the same height as width to maintain a perfect round shape */
+    font-size: 12px;
   }
 }
-
 
 .map-button.correct {
   background-color: #28a745;
@@ -93,10 +139,10 @@ body {
 }
 
 #reserve-name {
-  font-family: 'tahoma', sans-serif; /* Use the Material Symbols Outlined font for the reserve name */
-  font-size: 24px; /* Adjust the font size as needed */
-  font-weight: bold; /* Add font weight as needed */
-  color: #ff0000;
+  font-family: 'tahoma', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #bc0d0d;
 }
 
 button {
@@ -105,7 +151,7 @@ button {
   margin-top: 10px;
   padding: 10px 20px;
   font-size: 18px;
-  background-color: #2dcd8d;
+  background-color: #0b7265;
   color: #f9f6f6;
   border: none;
   border-radius: 4px;
@@ -117,32 +163,61 @@ button:hover {
   background-color: #0056b3;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
+  .container{
+    max-width: 400px;
+    padding: 20px;
+    position: static;
+    margin: 
+    left:0px;
+    
+  }
+  #reserve-name {
+    font-family: 'tahoma', sans-serif;
+    font-size: 19px;
+    font-weight: bold;
+    color: #bc0d7c;
+  }
   .content {
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .col-1,
+    width:100%
   .col-2 {
     width: 100%;
   }
+  .map-container {
+    position: relative;
+    max-width: 100%; /* Ensure the map container takes full width on mobile */
+    height: auto; /* Allow the height to adjust automatically */
+    margin-top: 20px; /* Adjust margin as needed for spacing */
+    left: 0; /* Position the map container on the left side of the screen */
+    top: 0; /* Reset the top position */
+  }
+
+  .map-container img {
+    max-width: 100%; /* Make sure the map image fits the container width */
+    height: auto; /* Allow the height to adjust automatically */
+  }
 
   .map-button {
-    width: 20px;
-    height: 20px;
+    position:absolute;
+    width: 15px;
+    height: 15px;
     font-size: 10px;
+  }
+  .dropbtn {
+    background-color: #1fdec4;
+    color: rgb(235, 225, 225);
+    padding: 0px;
+    width: 200px;
+    height: 38px ;
+    font-size: 16px;
+    border: 1px solid #000;
+    cursor: pointer;
+    margin-left: 0px; /* Add margin to the left to separate it from the title */
   }
 }
 
-#result {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 16px;
-  font-weight: bold;
-  color: #007bff;
-  font-family: 'Poppins', sans-serif; /* Use the Poppins font for the answer text */
-  -webkit-text-stroke: 1px black;
-  text-stroke: 1px black;
 }
