@@ -60,6 +60,7 @@ html {
 
 .title {
   text-align: center;
+  font-family: 'Tahoma', sans-serif;
   font-size: 24px;
   margin-bottom: 20px;
 }
@@ -122,11 +123,12 @@ content {
     -1px 0 0 #000;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 700px) {
   .map-button {
     width: 30px;
     height: 30px;
     font-size: 12px;
+    
   }
 }
 
@@ -139,10 +141,10 @@ content {
 }
 
 #reserve-name {
-  font-family: 'tahoma', sans-serif;
+  font-family: 'Tahoma', sans-serif;
   font-size: 24px;
   font-weight: bold;
-  color: #bc0d0d;
+  color: #f13450;
 }
 
 button {
@@ -163,7 +165,7 @@ button:hover {
   background-color: #0056b3;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 700px) {
   .container{
     max-width: 400px;
     padding: 20px;
@@ -189,7 +191,8 @@ button:hover {
   }
   .map-container {
     position: relative;
-    max-width: 100%; /* Ensure the map container takes full width on mobile */
+    max-width: 100%;
+    min-width: 412px; /* Ensure the map container takes full width on mobile */
     height: auto; /* Allow the height to adjust automatically */
     margin-top: 20px; /* Adjust margin as needed for spacing */
     left: 0; /* Position the map container on the left side of the screen */
@@ -198,7 +201,8 @@ button:hover {
 
   .map-container img {
     max-width: 100%; /* Make sure the map image fits the container width */
-    height: auto; /* Allow the height to adjust automatically */
+    height: auto 
+    position: static;/* Allow the height to adjust automatically */
   }
 
   .map-button {
@@ -206,6 +210,7 @@ button:hover {
     width: 15px;
     height: 15px;
     font-size: 10px;
+    
   }
   .dropbtn {
     background-color: #1fdec4;
@@ -219,5 +224,6 @@ button:hover {
     margin-left: 0px; /* Add margin to the left to separate it from the title */
   }
 }
+
 
 }

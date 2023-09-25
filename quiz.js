@@ -1,5 +1,5 @@
 const tigerReserves = [
-  "Bandipur Tiger Reserve",
+  "BANDIPUR Tiger Reserve",
   "Jim Corbett Tiger Reserve",
   "Nagarjunsagar-Srisailam Tiger Reserve",
   "Bandhavgarh Tiger Reserve",
@@ -92,15 +92,15 @@ function createButtons() {
 
 // Function to set new coordinates for the buttons
 function setButtonCoordinates() {
-  if (window.innerWidth <= 1000) {
+  if (window.innerWidth <= 700) {
     const buttonCoordinatesMobile = [
       { top: "350px", left: "100px" }, // Button 1
       { top: "105px", left: "155px" }, // Button 2
-      { top: "330px", left: "150px" }, // Button 3
+      { top: "350px", left: "150px" }, // Button 3
       { top: "210px", left: "130px" }, // Button 4
       { top: "190px", left: "80px" }, // Button 5
-      { top: "210px", left: "270px" }, // Button 6
-      { top: "400px", left: "110px" }, // Button 7
+      { top: "220px", left: "280px" }, // Button 6
+      { top: "420px", left: "120px" }, // Button 7
     ];
 
     const buttons = document.querySelectorAll(".map-button");
