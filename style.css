@@ -1,229 +1,159 @@
-html {
-  min-height: 100%;
-  overflow: scroll;
-  background-image: radial-gradient(circle,#70b7c2,#81dbe9, #01c7c4);
-  overflow-x: hidden;
-}  
-
-.dropbtn {
-  background-color: #1fdec4;
-  color: rgb(235, 225, 225);
-  padding: 16px;
-  width: 200px;
-  font-size: 16px;
-  border: 1px solid #000;
-  cursor: pointer;
-  margin-left: 0px; /* Add margin to the left to separate it from the title */
+body {
+    font-family: 'Lexend', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
+header {
+    text-align: center;
+    color: white; /* Make the text transparent */
+    padding: 0px 0;
+    background: linear-gradient(45deg, #007BFF, #e30ddc, #1f75d1); /* Gradient background */
+    background-size: 200% 200%; /* Set background size for animation */
+    animation: gradientAnimation 4s linear infinite; /* Animation properties */
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #93d0b5;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+h1 {
+    font-size: 100px;
+     /* Fixed your letter-spacing property */
+}
+p {
+    text-align: center; /* Center-align the text */
 }
 
-.dropdown-content a {
-  color: black;
-  background-color: rgba(11, 114, 101, 0.3);
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+
+/* Keyframes for gradient animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.fab.fa-telegram {
+    font-size: 30px; /* Adjust the icon size */
+    color: #0088cc; /* Change the icon color */
+    margin-right: 8px; /* Add spacing between the icon and text (if necessary) */
+}
+.join-community {
+    display: block; /* Makes it a block-level element */
+    background-color: #3498db; /* Background color */
+    color: #fff; /* Text color */
+    padding: 10px 20px; /* Padding around the text */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    margin-left:40%;
+    margin-right: 40%; /* Add margin for spacing */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Center align text */
+    font-size: 16px; /* Font size */
 }
 
-.dropdown-content a:hover {
-  background-color: #beb96e;
+
+.join-community:hover {
+    background-color: #2980b9; /* Background color on hover */
+    color: #fff; /* Text color on hover */
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* Other CSS styles go here */
 .container {
-  max-width: 200px;
-  max-height: fit-content;
-  margin: 0 auto;
-  padding: 20px;
-  position: fixed;
-  left: 90px;
-  
-
-}
-
-.title {
-  text-align: center;
-  font-family: 'Tahoma', sans-serif;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-content {
-  display: flex;
-  justify-content: space-between;
-}
-
-.col-1 {
-  width: 250px;
-}
-
-.col-2 {
-  width: 100%;
-  height: fit-content;
-  display:flex;
-}
-
-.map-container {
-  position: relative;
-  max-width: 100%;
-  height: 100%;
-  margin-top: 0;
-  left: 40%;
-  top: 20%;
-
-}
-
-.map-container img {
-  max-width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.map-button {
-  border-radius: 50px;
-  height: 20px;
-  width: 20px;
-  padding: 5px;
-  font-size: 14px;
-  background-color: #8daeef;
-  color: rgb(253, 250, 250);
-  font-weight: bold;
-  cursor: pointer;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-  text-shadow:
-    -1px -1px 0 #000,
-    0 -1px 0 #000,
-    1px -1px 0 #000,
-    1px 0 0 #000,
-    1px 1px 0 #000,
-    0 1px 0 #000,
-    -1px 1px 0 #000,
-    -1px 0 0 #000;
-}
-
-@media (max-width: 700px) {
-  .map-button {
-    width: 30px;
-    height: 30px;
-    font-size: 12px;
-    
-  }
-}
-
-.map-button.correct {
-  background-color: #28a745;
-}
-
-.map-button.wrong {
-  background-color: #dc3545;
-}
-
-#reserve-name {
-  font-family: 'Tahoma', sans-serif;
-  font-size: 24px;
-  font-weight: bold;
-  color: #f13450;
-}
-
-button {
-  font-family: 'tahoma';
-  font-weight: bold;
-  margin-top: 10px;
-  padding: 10px 20px;
-  font-size: 18px;
-  background-color: #0b7265;
-  color: #f9f6f6;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-@media screen and (max-width: 700px) {
-  .container{
-    max-width: 400px;
+    max-width: 1200px;
+    margin: 20px auto;
     padding: 20px;
-    position: static;
-    margin: 
-    left:0px;
-    
-  }
-  #reserve-name {
-    font-family: 'tahoma', sans-serif;
-    font-size: 19px;
-    font-weight: bold;
-    color: #bc0d7c;
-  }
-  .content {
-    flex-direction: row;
-  }
-
-  .col-1,
-    width:100%
-  .col-2 {
-    width: 100%;
-  }
-  .map-container {
-    position: relative;
-    max-width: 100%;
-    min-width: 412px; /* Ensure the map container takes full width on mobile */
-    height: auto; /* Allow the height to adjust automatically */
-    margin-top: 20px; /* Adjust margin as needed for spacing */
-    left: 0; /* Position the map container on the left side of the screen */
-    top: 0; /* Reset the top position */
-  }
-
-  .map-container img {
-    max-width: 100%; /* Make sure the map image fits the container width */
-    height: auto 
-    position: static;/* Allow the height to adjust automatically */
-  }
-
-  .map-button {
-    position:absolute;
-    width: 15px;
-    height: 15px;
-    font-size: 10px;
-    
-  }
-  .dropbtn {
-    background-color: #1fdec4;
-    color: rgb(235, 225, 225);
-    padding: 0px;
-    width: 200px;
-    height: 38px ;
-    font-size: 16px;
-    border: 1px solid #000;
-    cursor: pointer;
-    margin-left: 0px; /* Add margin to the left to separate it from the title */
-  }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
+.map-box {
+    text-decoration: none !important;
+    width: 200px;
+    height: 260px;
+    border: 1px solid #c6cace;
+    margin: 10px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.map-image {
+    max-width: 100%;
+    max-height: 180px;
+    margin-bottom: 10px;
+}
+
+.map-name {
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    color: black;
+    font-weight: bold;
+    border-top: 1px solid #d4d4d4;
+    padding-top: 5px;
+    text-decoration: none !important;
+}
+
+.map-name a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+.map-box:hover {
+    transform: translateY(-8px); /* Move the box 2px up on hover */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow on hover */
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 20px 0; /* Increase padding for mobile */
+    }
+
+    h1 {
+        font-size: 38px; /* Reduce font size for mobile */
+    }
+    .container {
+        flex-direction: row; /* Set the container's maximum width to 100% for mobile */
+    }
+
+    .map-box {
+        width: calc(50% - 20px); /* Display two boxes in a row with some spacing */
+        margin: 10px 0; /* Add spacing between the boxes */
+    }
+    .map-box:nth-child(even) {
+        margin-left: 20px;
+    }
+    .map-name{
+        font-size: 20px;
+    letter-spacing: 0.5px;
+    color: black;
+    font-weight: bold;
+    border-top: 1px solid #d4d4d4;
+    padding-top: 15px;
+    margin-bottom: 5px;
+    text-decoration: none !important;
+       
+}
+/* Add this CSS code to your style.css file or in a <style> tag in your HTML document */
+.join-community {
+    display: block; /* Makes it a block-level element */
+    background-color: #3498db; /* Background color */
+    color: #fff; /* Text color */
+    padding: 10px 20px; /* Padding around the text */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    margin: 10px; /* Add margin for spacing */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Center align text */
+    font-size: 16px; /* Font size */
+}
+
+.join-community:hover {
+    background-color: #2980b9; /* Background color on hover */
+    color: #fff; /* Text color on hover */
 }

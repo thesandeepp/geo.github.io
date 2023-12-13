@@ -8,8 +8,12 @@ const tigerReserves = [
   "Periyar Tiger Reserve",
 ];
 
+
+let correctAnswers = new Array(tigerReserves.length).fill(false);
 let currentQuestionIndex = 0;
 let correctAttemptsFirstTry = 0;
+
+
 
 function startQuiz() {
   currentQuestionIndex = 0;
@@ -20,15 +24,39 @@ function startQuiz() {
 }
 
 function showQuestion() {
-  document.getElementById("question").innerText = "Select on map:";
+ 
+  const previousImage = document.querySelector(".content img");
+  if (previousImage) {
+    previousImage.remove();
+  }
+
+  document.getElementById("question").innerText = "Tap on Map:";
   document.getElementById("reserve-name").innerText = tigerReserves[currentQuestionIndex];
+
+
+
+  
+  const buttons = document.querySelectorAll(".map-button");
+  buttons.forEach((button) => {
+    button.classList.remove("wrong");
+  });
+
+  
+  if (correctAnswers[currentQuestionIndex]) {
+    buttons[currentQuestionIndex].classList.add("correct");
+    buttons[currentQuestionIndex].innerText = tigerReserves[currentQuestionIndex];
+  }
 }
+
+
+
 
 function checkAnswer(selectedButtonIndex) {
   const correctButtonIndex = currentQuestionIndex + 1;
 
   if (selectedButtonIndex === correctButtonIndex && correctAttemptsFirstTry === currentQuestionIndex) {
     correctAttemptsFirstTry++;
+    correctAnswers[currentQuestionIndex] = true; 
     const buttons = document.querySelectorAll(".map-button");
     buttons[currentQuestionIndex].classList.add("correct");
     buttons[currentQuestionIndex].innerText = tigerReserves[currentQuestionIndex];
@@ -36,18 +64,24 @@ function checkAnswer(selectedButtonIndex) {
       buttons[currentQuestionIndex].classList.remove("correct");
       nextQuestion();
     }, 1000);
+
+    totalCorrectFirstTry++; 
   } else {
     const button = document.querySelector(`.map-button.button${selectedButtonIndex}`);
-    button.classList.add("wrong");
+    
   }
+
+  totalQuestionsAnswered++; 
+
+ 
+  const accuracyPercentage = ((totalCorrectFirstTry / totalQuestionsAnswered) * 100).toFixed(2);
+  document.getElementById("accuracy-percent").innerText = `${accuracyPercentage}%`;
 }
 
+
+
 function nextQuestion() {
-  const buttons = document.querySelectorAll(".map-button");
-  buttons.forEach((button) => {
-    button.classList.remove("wrong");
-    button.innerText = "";
-  });
+ 
 
   if (currentQuestionIndex < tigerReserves.length - 1) {
     currentQuestionIndex++;
@@ -62,13 +96,24 @@ function nextQuestion() {
 function displayResult() {
   const resultMessage = `You guessed ${correctAttemptsFirstTry} questions right on the first attempt out of ${tigerReserves.length}. Your score is ${resultPercentage.toFixed(2)}%.`;
   document.getElementById("result-message").innerText = resultMessage;
+
+  
+
+  // Display correct answers
+  let correctAnswersMessage = "Correct answers:\n";
+  tigerReserves.forEach((reserve, index) => {
+    if (correctAnswers[index]) {
+      correctAnswersMessage += `${index + 1}. ${reserve}\n`;
+    }
+  });
+  document.getElementById("correct-answers").innerText = correctAnswersMessage;
+  
   document.querySelector(".result-section").classList.remove("hidden");
 }
 
 
-// Rest of the code remains unchanged
 
-// Reset the quiz when the page is loaded or reloaded
+
 window.onload = () => {
   startQuiz();
   createButtons();
@@ -77,7 +122,7 @@ window.onload = () => {
   window.addEventListener("resize", setButtonCoordinates);
 };
 
-// Function to create buttons for the quiz
+
 function createButtons() {
   const buttonsOverlay = document.querySelector(".buttons-overlay");
   for (let i = 0; i < tigerReserves.length; i++) {
@@ -90,17 +135,17 @@ function createButtons() {
   }
 }
 
-// Function to set new coordinates for the buttons
+
 function setButtonCoordinates() {
   if (window.innerWidth <= 700) {
     const buttonCoordinatesMobile = [
-      { top: "350px", left: "100px" }, // Button 1
-      { top: "105px", left: "155px" }, // Button 2
-      { top: "350px", left: "150px" }, // Button 3
-      { top: "210px", left: "130px" }, // Button 4
-      { top: "190px", left: "80px" }, // Button 5
-      { top: "220px", left: "280px" }, // Button 6
-      { top: "420px", left: "120px" }, // Button 7
+      { top: "350px", left: "100px" }, 
+      { top: "105px", left: "155px" }, 
+      { top: "350px", left: "150px" }, 
+      { top: "210px", left: "130px" },
+      { top: "190px", left: "80px" }, 
+      { top: "220px", left: "280px" }, 
+      { top: "420px", left: "120px" }, 
     ];
 
     const buttons = document.querySelectorAll(".map-button");
@@ -110,13 +155,13 @@ function setButtonCoordinates() {
     });
     } else {
       const buttonCoordinates = [
-        { top: "620px", left: "191px" }, // Button 1
-        { top: "189px", left: "270px" }, // Button 2
-        { top: "590px", left: "250px" }, // Button 3
-        { top: "370px", left: "200px" }, // Button 4
-        { top: "330px", left: "129px" }, // Button 5
-        { top: "390px", left: "460px" }, // Button 6
-        { top: "700px", left: "204px" }, // Button 7
+        { top: "510px", left: "151px" }, 
+        { top: "159px", left: "230px" }, 
+        { top: "490px", left: "210px" }, 
+        { top: "320px", left: "200px" }, 
+        { top: "280px", left: "119px" }, 
+        { top: "320px", left: "400px" }, 
+        { top: "600px", left: "174px" }, 
       ];
   
       const buttons = document.querySelectorAll(".map-button");
@@ -127,9 +172,37 @@ function setButtonCoordinates() {
     }
   }
   
-  // Function to play the click sound whenever a button is clicked
+  
   function playClickSound() {
     const clickSound = new Audio('click.mp3');
     clickSound.play();
+  }
+  let totalCorrectFirstTry = 0; 
+  let totalQuestionsAnswered = 0; 
+  
+  function checkAnswer(selectedButtonIndex) {
+    const correctButtonIndex = currentQuestionIndex + 1;
+  
+    if (selectedButtonIndex === correctButtonIndex && correctAttemptsFirstTry === currentQuestionIndex) {
+      correctAttemptsFirstTry++;
+      const buttons = document.querySelectorAll(".map-button");
+      buttons[currentQuestionIndex].classList.add("correct");
+      buttons[currentQuestionIndex].innerText = tigerReserves[currentQuestionIndex];
+      setTimeout(() => {
+        buttons[currentQuestionIndex].classList.remove("correct");
+        nextQuestion();
+      }, 1000);
+      
+      totalCorrectFirstTry++; 
+    } else {
+      const button = document.querySelector(`.map-button.button${selectedButtonIndex}`);
+      button.classList.add("wrong");
+    }
+    
+    totalQuestionsAnswered++; 
+  
+    
+    const accuracyPercentage = ((totalCorrectFirstTry / totalQuestionsAnswered) * 100).toFixed(2);
+    document.getElementById("accuracy-percent").innerText = `${accuracyPercentage}%`;
   }
   

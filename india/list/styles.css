@@ -1,0 +1,106 @@
+body {
+    font-family:Arial, Helvetica, sans-serif ;
+    margin: 20px;
+    padding: 10px;
+    background-color: rgba(250,251,252,255);
+}
+.header-container {
+    background-color: rgb(127, 155, 255);
+    border-radius: 15px; /* Adjust the border-radius for rounded corners */
+    margin-bottom: 0px;
+    width: 100px;
+    height:fit-content ;
+    text-align: center;
+}    
+.second-header{
+    background-color: rgb(127, 155, 255);
+    width: 137px;
+}
+
+h2 {
+    color: #ffffff;
+    text-align: center;
+    font-size: 30px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.column {
+    position: relative;
+    flex: 0 0 calc(30% - 20px);
+    max-width: calc(30% - 20px);
+    background-color: rgba(255,255,255,255);
+    color: #3d3c3c;
+    text-align: left;
+    padding: 15px;
+    margin-top: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 -2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    height: 29px; /* Default height for larger screens */
+    font-size: 13px;
+}
+
+.column:hover {
+    transform: translateY(-3px);
+}
+
+.column .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.column:after {
+    content: '\FF1E';
+    font-size: 22px;
+    color: #6f6f6f;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    opacity: 50%;
+}
+
+@media (max-width: 768px) {
+    .column {
+        flex: 0 0 calc(95% - 20px);
+        max-width: calc(95% - 20px);
+        height: 20px; /* Set height to 20px on smaller screens */
+        padding: 10px; /* Adjusted padding for better spacing on smaller screens */
+        font-size: small;
+        margin-top: 20px;
+    }
+
+    .column .content {
+        padding: 5px; /* Adjusted padding for better spacing on smaller screens */
+    }
+
+    .column:after {
+        font-size: 18px;
+        opacity: 50%;
+    }
+    .header-container {
+        background-color: rgb(127, 155, 255);
+        border-radius: 15px; /* Adjust the border-radius for rounded corners */
+        margin-bottom: 0px;
+        width: 100px;
+        height:fit-content ;
+        text-align: center;
+    }  
+    .second-header{
+        width: 137px;
+    }  
+    
+    h2 {
+        color: #ffffff;
+        text-align: center;
+        font-size: 30px;
+    }
+}

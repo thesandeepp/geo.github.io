@@ -1,0 +1,274 @@
+html {
+  max-height: 100%;
+  overflow: hidden;
+  background-image: radialgradient(circle,#70b7c2,#81dbe9, #01c7c4);
+  background-color: #edebeb;
+  
+
+}  
+body{
+  margin: 0;
+  max-height: 100%;
+}
+
+.dropbtn {
+  background-color: rgb(17, 18, 19);
+  color: rgb(255, 255, 255);
+  padding: 0px;
+  width: 200px;
+  height: 40px;
+  font-family: 'Lexend', sans-serif;
+  font-size: 18px;
+  border: 1px solid #000;
+  cursor: pointer;
+  margin-left: 0px; 
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #eff1f8;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  background-color: rgba(215, 220, 233, 0.3);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #cdcee1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+.container {
+  max-width: 200px;
+  max-height: fit-content;
+  margin: 0 auto;
+  padding: 20px;
+  position: fixed;
+  left: 90px;
+  
+
+}
+
+.title {
+  text-align: center;
+  font-family: 'Lexend', sans-serif;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+content {
+  display: flex;
+  justify-content: space-between;
+  position:fixed;
+}
+/* styles.css */
+
+
+
+.col-1 {
+  width: 250px;
+}
+
+.col-2 {
+  width: 100%;
+  height: fit-content;
+  display:flex;
+}
+
+.map-container {
+  position: relative;
+  max-width: 100%;
+  height: 100%;
+  margin-top: 0;
+  left: 40%;
+  top: 20%;
+
+}
+
+
+.map-container img {
+  max-width: 85%;
+  height: 100%;
+  object-fit: cover;
+  
+
+}
+
+
+.map-button {
+  border-radius: 50px;
+  height: 20px;
+  width: 20px;
+  padding: 5px;
+  font-size: 14px;
+  background-color: #f4f4bb;
+  color: rgb(253, 250, 250);
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  text-shadow:
+    -1px -1px 0 #000,
+    0 -1px 0 #000,
+    1px -1px 0 #000,
+    1px 0 0 #000,
+    1px 1px 0 #000,
+    0 1px 0 #000,
+    -1px 1px 0 #000,
+    -1px 0 0 #000;
+  white-space: nowrap;  
+}
+#accuracy {
+  font-family: 'Lexend', sans-serif;
+  font-size: 18px;
+  color: #000000;
+}
+
+#accuracy-percent {
+  font-weight: bold;
+  color: #ff3902;
+}
+
+
+@media (max-width: 700px) {
+  .map-button {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+    
+  }
+}
+
+.map-button.correct {
+  background-color: #28a745;
+}
+
+.map-button.wrong {
+  background-color: #dc3545;
+}
+
+#reserve-name {
+  font-family: 'Lexend', sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff3902;
+}
+#question{
+  font-family: 'Lexend', sans-serif;
+  padding-top:7px ;
+  font-size: 18px;
+}
+
+button {
+  font-family: 'Lexend', sans-serif;
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 10px;
+  background-color: #0b7265;
+  color: #f9f6f6;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+@media screen and (max-width: 700px) {
+  .container{
+    max-width: 400px;
+    padding: 0px;
+    position: static;
+    margin: 
+    left: 0px;
+    
+  }
+  #reserve-name {
+    font-family: 'Lexend', sans-serif;
+    font-size: 19px;
+    font-weight: bold;
+  }
+  .content {
+    flex-direction: row;
+  }
+#question{
+  font-family: 'Lexend', sans-serif;
+  padding-top: 0px;
+}
+
+  .col-1,
+    width:100%
+  .col-2 {
+    width: 100%;
+  }
+  .map-container {
+    position: relative;
+    max-width: 100%;
+    min-width: 412px; 
+    height: auto; 
+    margin-top: 20px; 
+    left: 0; 
+    top: 0; 
+  }
+
+  .map-container img {
+    max-width: 100%; 
+    height: auto 
+    position: static;
+  }
+  .title {
+    text-align: center;
+    padding-bottom: 1px;
+  }
+  .question-image {
+    max-width: 100%;
+    max-height: 150px;
+    border: 2px solid #333;
+    margin-top: 10px;
+  }
+  
+
+  .map-button {
+    position:absolute;
+    width: 15px;
+    height: 15px;
+    font-size: 10px;
+    
+  }
+  .dropbtn {
+    padding: 0px;
+    width: 200px;
+    height: 38px ;
+    font-size: 16px;
+    border: 1px solid #000;
+    cursor: pointer;
+    margin-left: 0px;
+  }
+}
+
+
