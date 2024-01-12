@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@600&display=swap" rel="stylesheet">
+  <title>Tiger Reserves Map Quiz</title>
+  <link rel="stylesheet" href="style.css">
+  
+
+</head>
+<body>
+   <h1 class="title">Brahmputra River System </h1>
+  <div class="container">
+    <div class="content">
+      <div class="button-container">
+        <div class="dropdown">
+          <button class="dropbtn">Select quiz ▼</button>
+          <div class="dropdown-content">
+            <a href="">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+            <a href="#">Link 3</a>
+            <a href="#">Link 3</a>
+            <a href="#">Link 3</a>
+          </div>
+        </div>
+        <p id="question">Tap on Map:</p>
+        <p id="reserve-name"></p>
+        <p id="custom-message"></p>
+        <p id="accuracy">Accuracy: <span id="accuracy-percent">0%</span></p>
+        <div class="result-section">
+          <p id="result-message"></p>
+       
+  
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="col-2">
+      <div class="map-container">
+        <img src="map.png" alt="India Map">
+        <div class="buttons-overlay"></div>
+      </div>
+    </div>
+  </div>
+  <audio id="clickSound" src="click.mp3" preload="auto"></audio>
+  <script src="quiz.js" defer></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var columns = document.querySelectorAll('.column');
+
+        columns.forEach(function(column) {
+            column.addEventListener('click', function() {
+                var link = column.querySelector('.content a');
+                if (link) {
+                    window.location.href = link.getAttribute('href');
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
